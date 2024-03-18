@@ -7,7 +7,6 @@ import com.blog.payloads.UserDto;
 public interface UserService {
 	
 	UserDto createUser(UserDto user);
-	void deleteUser(UserDto user);
 	UserDto updateUser(UserDto user,Integer userId);
 	List<UserDto> getAllUser();
 	UserDto getUserById(Integer userId);

@@ -31,15 +31,11 @@ public class UserServiceImpl implements UserService {
 		return this.userToDto(savedUser);
 	}
 
-	@Override
-	public void deleteUser(UserDto user) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	@Override
 	public UserDto updateUser(UserDto userDto, Integer userId) {
-		User user=this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException(userId));
+		User user=this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User",userId));
 		user.setName(userDto.getName());
 		user.setAbout(userDto.getAbout());
 		user.setEmail(userDto.getEmail());
@@ -58,14 +54,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public UserDto getUserById(Integer userId) {
-		User user=this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException(userId));
+		User user=this.userRepo.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User",userId));
 		return this.userToDto(user);
 	}
 
 	@Override
 	public void deleteUserById(Integer userId) {
 		// TODO Auto-generated method stub
-		User user=this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException(userId));
+		User user=this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User",userId));
 		userRepo.delete(user);
 
 	}

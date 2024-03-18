@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 public class ResourceNotFoundException extends RuntimeException{
 	
-	
+	String fieldName;
 	long fieldValue;
-	public ResourceNotFoundException(long fieldValue) {
-		super(String.format("User not found with id: %s",fieldValue));
+	public ResourceNotFoundException(String fieldName,long fieldValue) {
+		super(String.format("%s not found with id: %s",fieldName,fieldValue));
 		
 		this.fieldValue = fieldValue;
 	}

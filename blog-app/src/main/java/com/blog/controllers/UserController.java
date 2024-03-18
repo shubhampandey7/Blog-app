@@ -67,7 +67,7 @@ public class UserController {
 	public ResponseEntity<ApiResponse> deleteUser(@PathVariable("userId") Integer id){
 		
 		this.userService.deleteUserById(id);
-		return new ResponseEntity<ApiResponse>(new  ApiResponse("User of id "+id+" Deleted Sucessfully",true),HttpStatus.OK);
+		return new ResponseEntity<ApiResponse>(new  ApiResponse("User id "+id+" is deleted sucessfully !!!",true),HttpStatus.OK);
 		//apirespose class is created bcoz we need to send message multiple time from multiple api so we can use it
 		
 	}
